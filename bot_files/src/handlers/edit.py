@@ -9,7 +9,6 @@ from itertools import groupby
 from src.communication.basics import send_markdown_msg, edit_message, send_markup_msg
 from src.dynamo_db import today_entries, yesterday_entries, that_day_entries, set_chat_state, ChatState, set_edit_day, \
     get_user_info, create_full_entry, cancel_edit as _cancel_edit, delete_that_day_entries
-from src.support.escapers import aggressive_escaper
 from src.support.logger import logger
 from src.support.m17n import strings
 
@@ -169,7 +168,6 @@ def validate_edited_registries(update: Update, context: CallbackContext):
 def edit_entry_request(update: Update, context: CallbackContext, entries: List[dict]):
     chat_id = update.effective_chat.id
     compiled_entries = compile_entries(entries)
-    compiled_entries = aggressive_escaper(compiled_entries)
     if len(compiled_entries) == 0:
         send_markdown_msg(update, strings()['edit:request:empty'])
     else:
