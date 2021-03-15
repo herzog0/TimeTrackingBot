@@ -20,7 +20,6 @@ def lambda_handler(event, context):
     access to the request and response payload, including headers and
     status code.
     """
-    print("Received event: " + json.dumps(event, indent=2))
 
     operations = {
         'POST': main,
@@ -38,7 +37,6 @@ def lambda_handler(event, context):
         pass
 
     if operation in operations:
-        print('CALLING OPERATION')
         return respond(None, operations[operation](payload))
     else:
         return respond(ValueError(f'Unsupported method {operation}'))
