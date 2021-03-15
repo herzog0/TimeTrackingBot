@@ -25,4 +25,4 @@ Due to this configuration, the bot is running with a free tier usage of the serv
 For the ease of provisioning and deploying the project on the cloud, Pulumi is being used.  
 
 __docs being improved__
- 
+
