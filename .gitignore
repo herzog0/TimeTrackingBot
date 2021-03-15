@@ -1,0 +1,14 @@
+.env
+.idea/
+venv/
+typings/
+
+__pycache__/
+
+*.pyc
+dist/
+
+node_modules/
+deployment.zip
+
+deps/

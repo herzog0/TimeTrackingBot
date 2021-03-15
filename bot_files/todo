@@ -1,0 +1,3 @@
+- docs
+- edit should also allow for deleting an entry
+- edit with multiple description lines is concatenating into a single line

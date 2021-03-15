@@ -1,0 +1,6 @@
+config:
+  TimeTrackingBot:GOOGLEMAPS_TOKEN:
+    secure: AAABAOlwwdd/jbTsFwWhL6C0lCpuKfXLfPqeo7fndrtRgi6fusdE2LUeiOzn98OpZZq+10W56zj8APjclIMyJdryI5wbL3Q=
+  TimeTrackingBot:TELEGRAM_TOKEN:
+    secure: AAABAAXAax4nwOZ69vAAnsmwDP+fYEG3/y0ni2dM0J6VciCN2JElSkn2+I/rqdzBGJ0wx3803aetzECDz9x2kYp+L8HHnKQLiS0S9CJu
+  aws:region: us-east-1
