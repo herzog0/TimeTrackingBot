@@ -19,7 +19,7 @@ cp -R "$DIR/." dist
 cp -R "src" dist
 cp lambda_handler.py dist
 
-echo "Building deployment package"
+echo "Building deployment package "
 cd dist || { echo "${RED}Dist folder not found!!"; exit 1; }
 zip -r -q -9 -T deployment .
 mv deployment.zip ../
