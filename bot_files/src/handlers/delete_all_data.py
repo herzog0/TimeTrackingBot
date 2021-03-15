@@ -24,7 +24,9 @@ def delete(update: Update, context: CallbackContext):
         raise DispatcherHandlerStop
     else:
         if update.callback_query.data == 'delete#yes':
-            if not db.delete_user_entries(chat_id) and not db.delete_user_info(chat_id):
+            deleted_user_entries = db.delete_user_entries(chat_id)
+            deleted_user_info = db.delete_user_info(chat_id)
+            if not deleted_user_entries and not deleted_user_info:
                 update.effective_message.delete()
                 send_markup_msg(update, strings()['delete:nothing'], ReplyKeyboardMarkup([['/start']],
                                                                                          resize_keyboard=True,
