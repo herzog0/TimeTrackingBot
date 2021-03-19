@@ -33,6 +33,7 @@ def lambda_handler(event, context):
     payload = base64.b64decode(event['body'])
     try:
         payload = json.loads(payload)
+        print(json.dumps(payload, indent='  '))
     except TypeError:
         pass
 
