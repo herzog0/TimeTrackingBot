@@ -11,7 +11,7 @@ from src.handlers.clock_in import clockin
 from src.handlers.default import default
 from src.handlers.delete_all_data import delete
 from src.handlers.edit import edit_choice_selector
-from src.handlers.help import handle_help
+from src.handlers.help import handle_help, help_message
 from src.handlers.options import options
 from src.handlers.report import choose_report
 from src.handlers.start import start
@@ -51,8 +51,8 @@ def main(data) -> None:
     dispatcher.add_handler(CommandHandler('opcoes', options), 2)
     dispatcher.add_handler(CommandHandler('cancel', cancel_operation), 2)
     dispatcher.add_handler(CommandHandler('cancelar', cancel_operation), 2)
-    dispatcher.add_handler(CommandHandler('help', handle_help), 2)
-    dispatcher.add_handler(CommandHandler('ajuda', handle_help), 2)
+    dispatcher.add_handler(CommandHandler('help', help_message), 2)
+    dispatcher.add_handler(CommandHandler('ajuda', help_message), 2)
 
     # These are answers from the markup keyboard
     dispatcher.add_handler(
@@ -73,6 +73,10 @@ def main(data) -> None:
     )
     dispatcher.add_handler(
         MessageHandler(Filters.regex(re.compile(r'^(cancel|cancelar)', re.IGNORECASE)), cancel_operation),
+        2
+    )
+    dispatcher.add_handler(
+        MessageHandler(Filters.regex(re.compile(r'^(help|ajuda)', re.IGNORECASE)), help_message),
         2
     )
     dispatcher.add_handler(

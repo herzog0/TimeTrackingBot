@@ -1,8 +1,14 @@
 from telegram import Update
 from telegram.ext import CallbackContext, DispatcherHandlerStop
 
-from src.communication.basics import edit_message
+from src.communication.basics import edit_message, send_markup_msg
+from src.support.help_kbd import help_inline_kdb
 from src.support.m17n import strings
+
+
+def help_message(update: Update, context: CallbackContext):
+    send_markup_msg(update, strings()['help'], help_inline_kdb(), True)
+    raise DispatcherHandlerStop
 
 
 def handle_help(update: Update, context: CallbackContext):
